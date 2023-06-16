@@ -40,25 +40,6 @@
 
 						<!-- Introduction -->
 							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Benchmarking Robustness of 3D Object Detection to Common Corruptions in Autonomous Driving</h2>
-										</header>
-										<p>3D object detection is an important task in autonomous driving to perceive the surroundings. 
-											Despite the excellent performance, the existing 3D detectors lack the robustness to real-world 
-											corruptions caused by adverse weathers, sensor noises, etc., provoking concerns about the safety and reliability 
-											of autonomous driving systems. To comprehensively and rigorously benchmark the corruption robustness of 3D detectors, 
-											in this paper we design 27 types of common corruptions for both LiDAR and camera inputs considering real-world driving scenarios. 
-											By synthesizing these corruptions on public datasets, we establish three corruption robustness benchmarks KITTI-C, nuScenes-C, and WaymoC. 
-											Then, we conduct large-scale experiments on 24 diverse 3D object detection models to evaluate their corruption robustness.</p>
-										
-									</div>
-								</div>
-							</section>
-
-						<!-- First Section -->
-							<section id="first" class="main special">
 								<div class="content">
 									<header class="major">
 										<h2>Benchmarking Robustness of 3D Object Detection to Common Corruptions in Autonomous Driving</h2>
@@ -70,51 +51,76 @@
 										in this paper we design 27 types of common corruptions for both LiDAR and camera inputs considering real-world driving scenarios. 
 										By synthesizing these corruptions on public datasets, we establish three corruption robustness benchmarks KITTI-C, nuScenes-C, and WaymoC. 
 										Then, we conduct large-scale experiments on 24 diverse 3D object detection models to evaluate their corruption robustness.</p>
+								</div>
+								<p align="left" style="font-size: 25px; line-height:1px"><b>Cooperate</b></p>
+								<p align="left" style="font-size: 20px; line-height:1px"> This work is jointly completed by Bosch Corporate Research and Tsinghua University. </p>
+								<table><tr>
+									<td><img src=images/Bosch_logo.png border=0 height="100"></td>
+									<td><img src=images/Tsinghua_logo.png border=0 height="100"></td>
+								</tr></table>
+								<p align="left" style="font-size: 20px; line-height:1px"> (Paper Author: Yinpeng Dong, Caixin Kang, Jinlai Zhang, Zijian Zhu, Yikai Wang, Xiao Yang, Hang Su, Xingxing Wei, Jun Zhu) </p>
+								<p align="left" style="font-size: 20px; line-height:1px"> (Bosch Corporate Research: Hao Sun, Yuxiang Qin) </p>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<div class="content">
+									<header class="major">
+										<h2>Data Introduction</h2>
+									</header>
+									
+									<p align="left" style="font-size: 25px; line-height:1px"><b>KITTI-C</b></p>
+									<p align="left">The KITTI dataset contains 3712 training, 3769 validation,
+										and 7518 test samples. As we do not have access
+										to the test set, KITTI-C is constructed upon the validation
+										set. Among the corruptions, we do not include FOV Lost,
+										Motion Compensation and Temporal Misalignment since:
+										1) 3D object detection models usually take front-view point
+										clouds of 90&deg; FOV as inputs since the KITTI dataset only
+										provides box annotations in front of the vehicle; 2) the localization
+										and timestamp information of each frame is not
+										provided in the dataset. Therefore, there are 24 corruptions
+										in KITTI-C with 5 severities for each following.</p>
+
+									<p align="left" style="font-size: 25px; line-height:1px"><b>nuScenes-C</b></p>
+									<p align="left">The nuScenes dataset contains 1000 sequences of approximately
+										20s duration with a LiDAR frequency of 20
+										FPS. The box annotations are provided for every 0.5s. Each
+										frame has one point cloud and six images covering 360&deg;
+										horizontal FOV. In total, there are 40k frames which are
+										split into 28k, 6k, 6k for training, validation, and testing. As
+										the dataset provides full annotations and information of vehicle
+										pose and timestamp, we can simulate all corruptions.
+										Thus, we apply all 27 corruptions to the nuScenes validation
+										set with 5 severities to obtain nuScenes-C.</p>
+									
+									<p align="left" style="font-size: 25px; line-height:1px"><b>Waymo-C</b></p>
+									<p align="left">The Waymo open dataset consists of 798 scenes for
+										training and 202 scenes for validation. Similar to nuScenes-
+										C, Waymo-C is constructed by applying all 27 corruptions
+										to the Waymo validation set with 5 severities.</p>
+									
+									<p align="left" style="font-size: 25px; line-height:1px"><b>Visualization</b></p>
+									<img src=images/imgs.png border=0 width="1200px">
 									
 								</div>
+								
 							</section>
 
 						<!-- Second Section -->
 							<section id="second" class="main special">
 								<header class="major">
-									<h2>Ipsum consequat</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
+									<h2>Code</h2>
+									<p>We release the benchmarks and codes at <a href="https://github.com/kkkcx/3D_Corruptions_AD">https://github.com/kkkcx/3D_Corruptions_AD</a>.</p>
 								</header>
-								<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-code-branch"></span>
-										<strong>5,120</strong> Etiam
-									</li>
-									<li class="style2">
-										<span class="icon fa-folder-open"></span>
-										<strong>8,192</strong> Magna
-									</li>
-									<li class="style3">
-										<span class="icon solid fa-signal"></span>
-										<strong>2,048</strong> Tempus
-									</li>
-									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<strong>4,096</strong> Aliquam
-									</li>
-									<li class="style5">
-										<span class="icon fa-gem"></span>
-										<strong>1,024</strong> Nullam
-									</li>
-								</ul>
-								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
 							</section>
 
 						<!-- Get Started -->
 							<section id="cta" class="main special">
 								<header class="major">
 									<h2>Leaderboard</h2>
+
+									<p align="left" style="color:white;font-size:20px"><b>* Results of 3D object detectors on nuScenes-C.</b></p>
 
 									<table border="1">
 										<tr>
@@ -203,259 +209,280 @@
 										
 										<tr>
 											<td rowspan = "10">Sensor</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Density</td>
+											<td>27.27</td>
+											<td>46.14</td>
+											<td>58.60</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>63.72</td>
+											<td>65.77</td>
+											<td>67.79</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Cutout</td>
+											<td>24.14</td>
+											<td>40.95</td>
+											<td>56.28</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>62.25</td>
+											<td>63.66</td>
+											<td>66.18</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Crosstalk</td>
+											<td>25.92</td>
+											<td>44.08</td>
+											<td>56.64</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>62.66</td>
+											<td>64.67</td>
+											<td>67.32</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>FOV Lost</td>
+											<td>8.87</td>
+											<td>15.40</td>
+											<td>20.84</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>26.32</td>
+											<td>24.63</td>
+											<td>27.17</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Gaussian (L)</td>
+											<td>19.41</td>
+											<td>39.16</td>
+											<td>45.79</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>58.94</td>
+											<td>55.10</td>
+											<td>60.64</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Uniform (L)</td>
+											<td>25.60</td>
+											<td>45.00</td>
+											<td>56.12</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>63.21</td>
+											<td>64.72</td>
+											<td>66.81</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Impulse (L)</td>
+											<td>26.44</td>
+											<td>45.58</td>
+											<td>57.67</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>63.43</td>
+											<td>65.51</td>
+											<td>67.54</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Gaussian (C)</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>3.96</td>
+											<td>4.33</td>
+											<td>14.86</td>
+											<td>54.96</td>
+											<td>64.52</td>
+											<td>64.44</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Uniform (C)</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>8.12</td>
+											<td>8.48</td>
+											<td>21.49</td>
+											<td>57.61</td>
+											<td>65.26</td>
+											<td>65.81</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Impulse (C)</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>3.55</td>
+											<td>3.78</td>
+											<td>14.32</td>
+											<td>55.16</td>
+											<td>64.37</td>
+											<td>64.30</td>
 										</tr>
 
 										
 										<tr>
 											<td rowspan = "3">Motion</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Compensation</td>
+											<td>3.85</td>
+											<td>10.39</td>
+											<td>11.02</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>31.87</td>
+											<td>9.01</td>
+											<td>27.57</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Moving Obj.</td>
+											<td>19.38</td>
+											<td>35.11</td>
+											<td>44.30</td>
+											<td>10.36</td>
+											<td>10.47</td>
+											<td>16.63</td>
+											<td>45.43</td>
+											<td>51.01</td>
+											<td>51.63</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Motion Blur</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>10.19</td>
+											<td>9.64</td>
+											<td>11.06</td>
+											<td>55.99</td>
+											<td>64.39</td>
+											<td>64.74</td>
 										</tr>
 
 										
 										<tr>
 											<td rowspan = "8">Object</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Local Density</td>
+											<td>26.70</td>
+											<td>45.42</td>
+											<td>57.55</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>63.60</td>
+											<td>65.65</td>
+											<td>67.42</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Local Cutout</td>
+											<td>17.97</td>
+											<td>32.16</td>
+											<td>48.36</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>61.85</td>
+											<td>63.33</td>
+											<td>63.41</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Local Gaussian</td>
+											<td>25.93</td>
+											<td>43.71</td>
+											<td>51.13</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>62.94</td>
+											<td>63.76</td>
+											<td>64.34</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Local Uniform</td>
+											<td>27.69</td>
+											<td>46.87</td>
+											<td>57.87</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>64.09</td>
+											<td>66.20</td>
+											<td>67.58</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Local Impulse</td>
+											<td>27.67</td>
+											<td>46.88</td>
+											<td>58.49</td>
+											<td>-</td>
+											<td>-</td>
+											<td>-</td>
+											<td>64.02</td>
+											<td>66.29</td>
+											<td>67.91</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Shear</td>
+											<td>26.34</td>
+											<td>43.28</td>
+											<td>49.57</td>
+											<td>17.20</td>
+											<td>16.66</td>
+											<td>17.46</td>
+											<td>55.42</td>
+											<td>62.32</td>
+											<td>60.72</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Scale</td>
+											<td>27.29</td>
+											<td>45.98</td>
+											<td>51.13</td>
+											<td>6.75</td>
+											<td>6.57</td>
+											<td>12.02</td>
+											<td>56.79</td>
+											<td>64.13</td>
+											<td>64.57</td>
 										</tr>
 										<tr>
 
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
-											<td>文本12</td>
-											<td>文本13</td>
-											<td>文本11</td>
+											<td>Rotation</td>
+											<td>27.80</td>
+											<td>46.93</td>
+											<td>54.68</td>
+											<td>17.21</td>
+											<td>16.84</td>
+											<td>27.28</td>
+											<td>59.64</td>
+											<td>63.36</td>
+											<td>65.13</td>
 										</tr>
 
 										
